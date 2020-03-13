@@ -20,7 +20,10 @@ router.get('/', function(req, res, next) {
   })
   .then(notelist => {
     console.log(notelist);
-    res.render('index', { title: 'Notes App', notelist: notelist });
+    res.render('index', {
+      title: 'Notes App',
+      notelist: notelist
+    });
   })
   .catch(err => { next(err); });
 });

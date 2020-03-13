@@ -7,10 +7,14 @@
   <%- include('header') %>
   <form method="POST" action="/notes/destroy/confirm">
     <input type="hidden" name="notekey" value='<%= note ? notekey : "" %>'>
-    <p>Usunąć notatkę <%= note.title %> ?</p>
+    <p>
+      Usunąć notatkę <%= note.title %> ?
+    </p>
     <br />
     <input type="submit" value="USUŃ" />
-    <a href="/notes/view?key=<%= notekey %>">Anuluj</a>
+    <a href="/notes/view?key=<%= notekey %>">
+      Anuluj
+    </a>
   </form>
 </body>
 </html>

@@ -8,11 +8,15 @@
   <p><%= note ? note.body : "" %></p>
   <p>Klucz: <%= notekey %></p>
   <% if (notekey) { %>
-   <hr />
-   <p>
-     <a href="/notes/destroy?key=<%= notekey %>">Usuń</a> |
-     <a href="/notes/edit?key=<%= notekey %>">Edytuj</a>
-   </p>
-   <% } %>
+    <hr />
+    <p>
+      <a href="/notes/destroy?key=<%= notekey %>">
+        Usuń
+      </a> |
+      <a href="/notes/edit?key=<%= notekey %>">
+        Edytuj
+      </a>
+    </p>
+  <% } %>
 </body>
 </html>

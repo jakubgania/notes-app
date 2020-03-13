@@ -12,8 +12,11 @@ exports.update = exports.create = function(key, title, body) {
 
 exports.read = function(key) {
   return new Promise((resolve, reject) => {
-    if (notes[key]) resolve(notes[key]);
-    else reject(`Notatka o kluczu ${key} nie istnieje`);
+    if (notes[key]) {
+      resolve(notes[key]);
+    } else {
+      reject(`Notatka o kluczu ${key} nie istnieje`);
+    } 
   });
 };
 
@@ -22,7 +25,9 @@ exports.destroy = function(key) {
     if (notes[key]) {
       delete notes[key];
       resolve();
-    } else reject(`Notatka o kluczu ${key} nie istnieje`);
+    } else {
+      reject(`Notatka o kluczu ${key} nie istnieje`);
+    }
   });
 };
 
