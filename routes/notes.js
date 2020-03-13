@@ -42,7 +42,7 @@ router.get('/edit', (req, res, next) => {
 router.get('/destroy', (req, res, next) => {
   notes.read(req.query.key)
   .then(note => {
-    res.render('notdestroy', {
+    res.render('notedestroy', {
       title: note ? note.title : "",
       notekey: req.query.key,
       note: note
@@ -62,6 +62,12 @@ router.post('/save', (req, res, next) => {
     res.redirect('/notes/view?key=' + req.body.notekey);
   })
   .catch(err => { next(err) });
+});
+
+router.post('/destroy/confirm', (req, res, next) => {
+  notes.destroy(req.body.notekey)
+  .then(() => {res.redirect('/'); })
+  .catch(err => {next(err); });
 });
 
 module.exports = router;
