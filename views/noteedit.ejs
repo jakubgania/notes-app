@@ -17,7 +17,7 @@
       <p>Tytuł: <input type="text" name="title" value='<%= note ? note.title : "" %>' /></p>
       </br>
       <textarea rows="5" cols="40" name="body">
-        <%= ? note.body : "" %>
+        <%= note ? note.body : "" %>
       </textarea>
       </br>
       <input type="submit" value='Wyślij' />
