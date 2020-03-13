@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+
+    <% if (notelist.length == 0) { %>
+      mkd
+      <!-- <ul><%
+        for (var note of notelist) {
+          %><li><%= note.key %>:
+            <a href="/notes/view?key=<%= note.key %>"><%= note.title %></a>
+          </li><%
+        }
+      %></ul> -->
+    <% } else { %>
+      brak notatek
+      <% } %>
+  </body>
+</html>
