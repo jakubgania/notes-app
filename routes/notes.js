@@ -14,10 +14,47 @@ router.get('/add', (req, res, next) => {
   });
 });
 
+router.get('/view', (req, res, next) => {
+  notes.read(req.query.key)
+  .then(note => {
+    res.render('noteview', {
+      title: note ? note.title : "",
+      notekey: req.query.key,
+      note: note
+    });
+  })
+  .catch(err => { next(err); });
+});
+
+router.get('/edit', (req, res, next) => {
+  notes.read(req.query.key)
+  .then(note => {
+    res.render('noteedit', {
+      title: note ? ("Edycja notatki " + note.title) : "Dodaj notatkę",
+      docreate: false,
+      notekey: req.query.key,
+      note: note
+    });
+  })
+  .catch(err => { next(err); });
+})
+
+router.get('/destroy', (req, res, next) => {
+  notes.read(req.query.key)
+  .then(note => {
+    res.render('notdestroy', {
+      title: note ? note.title : "",
+      notekey: req.query.key,
+      note: note
+    });
+  })
+  .catch(err => { next(err); });
+});
+
 router.post('/save', (req, res, next) => {
   var p;
   if (req.body.docreate === "create") {
-    p = notes.docreate(req.body.notekey, req.body.title, req.body.body);
+    p = notes.create(req.body.notekey, req.body.title, req.body.body);
   } else {
     p = notes.update(req.body.notekey, req.body.title, req.body.body);
   }
