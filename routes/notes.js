@@ -1,9 +1,9 @@
 // 'use strict';
 
-// var util = require('util');
+var util = require('util');
 var express = require('express');
 var router = express.Router();
-// var notes = require('../models/notes-memory');
+var notes = require('../models/notes-memory');
 
 router.get('/add', (req, res, next) => {
   res.render('noteedit', {

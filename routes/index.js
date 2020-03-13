@@ -4,10 +4,11 @@ var notes = require('../models/notes-memory');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  console.log('test');
   notes.keylist()
   .then(keylist => {
-    let keyPromises = [];
-    for(let key of keylist) {
+    var keyPromises = [];
+    for(var key of keylist) {
       keyPromises.push(
         notes.read(key)
           .then(note => {
@@ -18,7 +19,8 @@ router.get('/', function(req, res, next) {
     return Promise.all(keyPromises);
   })
   .then(notelist => {
-    res.render('index', { title: 'Notes', notelist: notelist });
+    console.log(notelist);
+    res.render('index', { title: 'Notes App', notelist: notelist });
   })
   .catch(err => { next(err); });
 });
