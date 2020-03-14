@@ -3,20 +3,27 @@
   <%- include('headerSettings') %>
 </head>
 <body>
-  <%- include('header') %>
-  <h3><%= note ? note.title : "" %></h3>
-  <p><%= note ? note.body : "" %></p>
-  <p>Klucz: <%= notekey %></p>
-  <% if (notekey) { %>
-    <hr />
-    <p>
-      <a href="/notes/destroy?key=<%= notekey %>">
-        Usuń
-      </a> |
-      <a href="/notes/edit?key=<%= notekey %>">
-        Edytuj
-      </a>
-    </p>
-  <% } %>
+  <div class="container-fluid">
+    <%- include('header') %>
+    <div class="row">
+      <div class="col-xs-12">
+        <h3><%= note ? note.title : "" %></h3>
+        <p><%= note ? note.body : "" %></p>
+        <p>Klucz: <%= notekey %></p>
+        <% if (notekey) { %>
+          <div class="row">
+            <div class="btn-group col-sm-12">
+              <a class="btn btn-danger" href="/notes/destroy?key=<%= notekey %>" role="button">
+                Usuń
+              </a>
+              <a class="btn btn-warning" href="/notes/edit?key=<%= notekey %>" role="button">
+                Edytuj
+              </a>
+            </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+  </div>
 </body>
 </html>
