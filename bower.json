@@ -1,0 +1,20 @@
+{
+  "name": "notes-app",
+  "description": "",
+  "main": "",
+  "authors": [
+    "jakubgania <contact@jakubgania.io>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/jakubgania/notes-app",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap": "^4.4.1"
+  }
+}
