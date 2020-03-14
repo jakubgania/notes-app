@@ -4,21 +4,27 @@
     <%- include('headerSettings') %>
   </head>
   <body>
-    <%- include('header') %>
-    <p>
-      Prototyp aplikacji do zarządzania notatkami
-    </p>
-    <% if (notelist.length > 0) { %>
-      <ul><%
-        for (var note of notelist) {
-          %><li><%= note.key %>:
-            <a href="/notes/view?key=<%= note.key %>"><%= note.title %></a>
-          </li><%
-        }
-      %></ul>
-    <% } %>
+    <div class="container-fluid">
+      <%- include('header') %>
+      <p>
+        Prototyp aplikacji do zarządzania notatkami
+      </p>
+      <div class="row">
+        <div class="col-xs-12">
+          <% if (notelist.length > 0) { %>
+            <ul><%
+              for (var note of notelist) {
+                %><li><%= note.key %>:
+                  <a href="/notes/view?key=<%= note.key %>"><%= note.title %></a>
+                </li><%
+              }
+            %></ul>
+          <% } %>
+        </div>
+      </div>
 
-    <script src="/vendor/jquery/jquery.min.js"></script>
-    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+      <script src="/vendor/jquery/jquery.min.js"></script>
+      <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    </div>
   </body>
 </html>
