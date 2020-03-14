@@ -2,14 +2,25 @@
   <h1>
     <%= title %>
   </h1>
-  <div class="navbar"></div>
-  <p>
-    <a href="/">
-      Strona główna
-    </a>
-    |
-    <a href="/notes/add">
+  <% if (typeof hideAddNote === 'undefined') { %>
+    <a class="btn btn-primary" href="/notes/add">
       Dodaj notatkę
     </a>
-  </p>
+  <% } %>
+  
+  <% if (typeof breadcrumbs !== 'undefined' && breadcrumbs) { %>
+    <ol class="breadcrumb">
+      <%
+      for (var crumb of breadcrumbs) {
+        if (crumb.active) {
+          %><li class="active">
+              <%= crumb.text %>
+            </li><%
+        } else {
+          %><li><a href="<%= crumb.href %>"><%= crumb.text %></a></li><%
+        }
+      }
+      %>
+    </ol>
+  <% } %>
 </header>

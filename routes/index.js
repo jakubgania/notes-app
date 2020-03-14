@@ -22,7 +22,13 @@ router.get('/', function(req, res, next) {
     console.log(notelist);
     res.render('index', {
       title: 'Notes App',
-      notelist: notelist
+      notelist: notelist,
+      breadcrumbs: [
+        {
+          href: '/',
+          text: 'Strona główna'
+        }
+      ]
     });
   })
   .catch(err => { next(err); });

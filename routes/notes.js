@@ -10,7 +10,18 @@ router.get('/add', (req, res, next) => {
     title: "Dodaj notatke",
     docreate: true,
     notekey: "",
-    note: undefined
+    note: undefined,
+    breadcrumbs: [
+      {
+        href: '/',
+        text: 'Strona główna'
+      },
+      {
+        active: true,
+        text: 'Dodaj notatkę'
+      }
+    ],
+    hideAddNote: true
   });
 });
 
@@ -20,7 +31,17 @@ router.get('/view', (req, res, next) => {
     res.render('noteview', {
       title: note ? note.title : "",
       notekey: req.query.key,
-      note: note
+      note: note,
+      breadcrumbs: [
+        {
+          href: '/',
+          text: 'Strona główna'
+        },
+        {
+          active: true,
+          text: note.title
+        }
+      ]
     });
   })
   .catch(err => { next(err); });
@@ -33,7 +54,17 @@ router.get('/edit', (req, res, next) => {
       title: note ? ("Edycja notatki " + note.title) : "Dodaj notatkę",
       docreate: false,
       notekey: req.query.key,
-      note: note
+      note: note,
+      breadcrumbs: [
+        {
+          href: '/',
+          text: 'Strona główna'
+        },
+        {
+          active: true,
+          text: note.title
+        }
+      ]
     });
   })
   .catch(err => { next(err); });
@@ -45,7 +76,17 @@ router.get('/destroy', (req, res, next) => {
     res.render('notedestroy', {
       title: note ? note.title : "",
       notekey: req.query.key,
-      note: note
+      note: note,
+      breadcrumbs: [
+        {
+          href: '/',
+          text: 'Strona główna'
+        },
+        {
+          active: true,
+          text: 'Usuń notatkę'
+        }
+      ]
     });
   })
   .catch(err => { next(err); });
